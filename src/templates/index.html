@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+    <title>MetalSlugFontReborn</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
     <link rel="icon" href="{{ url_for('static', filename='assets/icons/favicon.ico') }}" type="image/x-icon">
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="manifest" href="../static/manifest.json" />
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     {% block head %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +14,6 @@
         <meta name="description" content="A tool for creating images with the Metal Slug font.">
         <meta name="keywords" content="Metal Slug, Metal Slug Font, Metal Slug Font Reborn">
         <meta name="author" content="VermeilChan, SikroxMemer">
-        <title>MetalSlugFontReborn</title>
-
         <meta property="og:title" content="MetalSlugFontReborn">
         <meta property="og:description" content="A tool for creating images with the Metal Slug font.">
         <meta property="og:image" content="{{ url_for('static', filename='assets/icons/logo.png') }}">
@@ -26,7 +26,7 @@
         <div class="icons-container">
             <div class="icons">
                 <div class="tooltip">
-                    <a href="https://github.com/VermeilChan/MetalSlugFontReborn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/VermeilChan/MetalSlugFontRebornWeb" target="_blank" rel="noopener noreferrer">
                         <img src="{{ url_for('static', filename='assets/icons/github.svg') }}" alt="GitHub" class="social-icon" width="48" height="48">
                     </a>
                     <span class="tooltiptext">Source Code</span>
