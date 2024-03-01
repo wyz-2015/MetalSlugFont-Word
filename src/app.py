@@ -43,7 +43,7 @@ def form():
 @app.route('/results')
 def result():
     output = request.args.get('output')
-    return render_template('result.html', output=output)
+    return render_template('results.html', output=output)
 
 if __name__ == "__main__":
     app.run()
