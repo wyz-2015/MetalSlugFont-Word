@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/support')
+@app.route('/supported')
 def supported():
     return render_template('supported.html')
 
@@ -17,8 +17,8 @@ def examples():
 
 @app.route('/', methods=['POST'])
 def form():
-    if request.method == "POST":
-        try:
+    try:
+        if request.method == "POST":
             text = request.form['text']
             font = int(request.form['font'])
             color = request.form['color']
@@ -32,15 +32,15 @@ def form():
 
             return redirect(url_for('result', output=image_url))
 
-        except FileNotFoundError as error:
-            return render_template('index.html', error=f"File not found: {error}", error_type='FileNotFoundError')
+    except FileNotFoundError as error:
+        return render_template('index.html', error=f"File not found: {error}", error_type='FileNotFoundError')
 
-        except Exception as error:
-            return render_template('index.html', error=f"Error: {error}")
+    except Exception as error:
+        return render_template('index.html', error=f"Error: {error}")
 
     return render_template('index.html', error="POST METHOD NOT AVAILABLE")
 
-@app.route('/result')
+@app.route('/results')
 def result():
     output = request.args.get('output')
     return render_template('result.html', output=output)

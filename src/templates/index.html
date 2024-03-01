@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title>MetalSlugFontReborn</title>
-    <link rel="stylesheet" href="/static/css/compressed/style.min.css"/>
+    <title>MetalSlugFontReborn - Home</title>
+    <link rel="stylesheet" href="/static/css/compressed/home.min.css"/>
     <link rel="icon" href="/static/assets/icons/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="/static/manifest.json" />
     <script src="/static/js/main.min.js"defer></script>
@@ -23,15 +23,12 @@
     {% block body %}
     <div class="container">
         <div class="icons-container">
-            <div class="icons">
-                <div class="tooltip">
                     <a href="https://github.com/VermeilChan/MetalSlugFontRebornWeb" target="_blank" rel="noopener noreferrer">
-                        <img src="/static/assets/icons/github.svg" alt="GitHub" class="social-icon" width="48" height="48">
+                        <img src="/static/assets/icons/github.svg" title="GitHub repository" alt="GitHub repository" class="social-icon" width="48" height="48">
                     </a>
-                    <span class="tooltiptext">Source Code</span>
                 </div>
             </div>
-        </div>
+        </div>        
 
         <img src="/static/assets/icons/Raubtier.webp" alt="Raubtier" class="header-image" width="189" height="243">
     </div>
@@ -62,7 +59,7 @@
                 <p class="error-message">
                     {{ error }}
                     {% if error_type == 'FileNotFoundError' %}
-                        check the supported characters <a href='/support'>here</a>.
+                        check the supported characters <a href='/supported'>here</a>.
                     {% endif %}
                 </p>
             {% else %}
@@ -72,8 +69,8 @@
             {% endif %}
         </section>
 
-        <section id="support">
-            <p>Check out the list of <a href="/support">supported characters</a> here.</p>
+        <section id="supported">
+            <p>Check out the list of <a href="/supported">supported characters</a> here.</p>
             <p>If you want to see how they look, you can view some <a href="/examples">examples</a> here.</p>
         </section>                
     </div>
