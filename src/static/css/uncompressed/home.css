@@ -81,3 +81,9 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
     background-color: #555;
 }
+a:link {
+    color: #4caf50;
+}
+a:visited {
+    color: #4caf50;
+}
