@@ -33,12 +33,10 @@ def form():
             return redirect(url_for('result', output=image_url))
 
     except FileNotFoundError as error:
-        return render_template('index.html', error=f"File not found: {error}", error_type='FileNotFoundError')
+        return render_template('index.html', error=f"{error}", error_type='FileNotFoundError')
 
     except Exception as error:
         return render_template('index.html', error=f"Error: {error}")
-
-    return render_template('index.html', error="POST METHOD NOT AVAILABLE")
 
 @app.route('/results')
 def result():
