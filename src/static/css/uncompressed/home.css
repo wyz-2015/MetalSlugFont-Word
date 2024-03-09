@@ -10,13 +10,24 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-.icons-container {
+.github {
+    background-color: var(--github-color);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
     position: absolute;
-    top: 10px;
-    left: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 5px;
-    border-radius: 5px;
+    top: 0;
+    left: 0;
+    margin: var(--github-margin);
+    padding: var(--github-padding);
+    z-index: 1;
+}
+.github:hover {
+    transform: scale(1.1);
+}
+:root {
+    --github-color: #333;
+    --github-margin: 10px;
+    --github-padding: 5px;
 }
 .header-image {
     display: block;
