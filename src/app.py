@@ -33,7 +33,7 @@ def form():
             return redirect(url_for('result', output=image_url))
 
     except FileNotFoundError as error:
-        return render_template('index.html', error=f"{error}", error_type='FileNotFoundError')
+        return render_template('index.html', error=f"{error}", unsupported='FileNotFoundError')
 
     except Exception as error:
         return render_template('index.html', error=f"Error: {error}")
