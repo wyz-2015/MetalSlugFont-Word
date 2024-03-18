@@ -58,7 +58,7 @@
             {% if error %}
                 <p class="error-message">
                     {{ error }}
-                    {% if error_type == 'FileNotFoundError' %}
+                    {% if unsupported == 'FileNotFoundError' %}
                         check the supported characters <a href='/supported'>here</a>.
                     {% endif %}
                 </p>
