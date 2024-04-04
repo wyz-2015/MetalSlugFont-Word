@@ -8,7 +8,7 @@ def generate_filename():
     return f"{unique_id}.png"
 
 def get_font_paths(font, color):
-    base_path = path.join('src', 'static', 'assets', 'fonts', f'font-{font}', f'MS-{color}')
+    base_path = path.join('src', 'static', 'assets', 'fonts', f'font-{font}', f'ms-{color}')
     return [path.join(base_path, folder) for folder in ('letters', 'numbers', 'symbols')]
 
 def get_character_image_path(character, font_paths):
