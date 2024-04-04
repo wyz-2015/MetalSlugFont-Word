@@ -1,5 +1,5 @@
-from os import path, makedirs
 from uuid import uuid4
+from os import path, makedirs
 from PIL import Image
 from constants import special_characters
 
@@ -8,7 +8,7 @@ def generate_filename():
     return f"{unique_id}.png"
 
 def get_font_paths(font, color):
-    base_path = path.join('src', 'static', 'assets', 'fonts', f'font-{font}', f'font-{font}-{color}')
+    base_path = path.join('src', 'static', 'assets', 'fonts', f'font-{font}', f'MS-{color}')
     return [path.join(base_path, folder) for folder in ('letters', 'numbers', 'symbols')]
 
 def get_character_image_path(character, font_paths):
@@ -37,7 +37,7 @@ def get_or_create_character_image(character, font_paths):
 
     return Image.open(character_image_path)
 
-def generate_image(text, filename, font_paths):
+def generate_image(text, image_filename, font_paths):
     font_images = {c: get_or_create_character_image(c, font_paths) for c in set(text)}
 
     total_width = sum(font_images[c].width for c in text)
@@ -55,9 +55,9 @@ def generate_image(text, filename, font_paths):
     image_directory = path.join('src', 'static', 'generated-images')
     makedirs(image_directory, exist_ok=True)
 
-    image_path = path.join(image_directory, filename)
+    image_path = path.join(image_directory, image_filename)
     final_image.save(image_path, optimize=True)
 
-    image_url = f'static/generated-images/{filename}'
+    image_url = f'static/generated-images/{image_filename}'
 
     return image_url, None
