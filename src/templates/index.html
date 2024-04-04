@@ -2,10 +2,10 @@
 <html lang="en-US">
 <head>
     <title>MetalSlugFontReborn</title>
-    <link rel="stylesheet" href="/static/css/compressed/home.min.css"/>
+    <link rel="stylesheet" href="/static/css/minified/home.min.css"/>
     <link rel="icon" href="/static/assets/icons/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="/static/manifest.json" />
-    <script src="/static/js/fonts.min.js"defer></script>
+    <script src="/static/js/minified/fonts.min.js"defer></script>
     {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@
 
         <form id="form" action="/" method="post">
             <input type="text" name="text" placeholder="Enter Text" required="" oninvalid="setCustomValidity('Please enter some text.')" oninput="setCustomValidity('')">
-
+    
             <select id="font" name="font">
                 <option value="1">Font 1</option>
                 <option value="2">Font 2</option>
@@ -44,13 +44,13 @@
                 <option value="4">Font 4</option>
                 <option value="5">Font 5</option>
             </select>
-
+    
             <select id="color" name="color">
                 <option value="blue">Blue</option>
-                <option value="orange-1">Orange 1</option>
-                <option value="orange-2">Orange 2</option>
+                <option value="orange">Orange</option>
+                <option value="gold">Gold</option>
             </select>
-
+    
             <input type="submit" value="Generate">
         </form>
 
