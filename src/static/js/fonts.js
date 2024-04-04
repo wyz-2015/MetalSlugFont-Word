@@ -4,17 +4,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const colorOptionsMap = new Map([
         ['Blue', 'Blue'],
-        ['Orange-1', 'Orange 1'],
-        ['Orange-2', 'Orange 2'],
+        ['Orange', 'Orange'],
+        ['Gold', 'Gold'],
         ['Yellow', 'Yellow']
     ]);
 
     const colorMap = new Map([
-        ['1', new Set(['Blue', 'Orange-1', 'Orange-2'])],
-        ['2', new Set(['Blue', 'Orange-1', 'Orange-2'])],
-        ['3', new Set(['Blue', 'Orange-1'])],
-        ['4', new Set(['Blue', 'Orange-1', 'Yellow'])],
-        ['5', new Set(['Orange-1'])]
+        ['1', new Set(['Blue', 'Orange', 'Gold'])],
+        ['2', new Set(['Blue', 'Orange', 'Gold'])],
+        ['3', new Set(['Blue', 'Orange'])],
+        ['4', new Set(['Blue', 'Orange', 'Yellow'])],
+        ['5', new Set(['Orange'])]
     ]);
 
     if (fontSelect) {
