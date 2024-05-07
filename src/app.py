@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from main import generate_image, generate_filename, get_font_paths
+from image_generation import generate_image, generate_filename, get_font_paths
 
 app = Flask(__name__)
 
