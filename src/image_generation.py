@@ -1,7 +1,7 @@
 from uuid import uuid4
 from os import path, makedirs
 from PIL import Image
-from constants import special_characters
+from special_characters import special_characters
 
 def generate_filename():
     unique_id = uuid4().hex
@@ -33,7 +33,7 @@ def get_or_create_character_image(character, font_paths):
 
     character_image_path = get_character_image_path(character, font_paths)
     if not character_image_path or not path.isfile(character_image_path):
-        raise FileNotFoundError(f"Unsupported character '{character}',")
+        raise FileNotFoundError(f"The character '{character}' is not supported, please check the supported characters ")
 
     return Image.open(character_image_path)
 
