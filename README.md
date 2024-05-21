@@ -1,69 +1,49 @@
-# MetalSlugFontRebornWeb
+# MetalSlugFont-Word
 
-<p align="center">
-  <a href="https://github.com/VermeilChan/MetalSlugFontRebornWeb/graphs/contributors">
-    <img alt="Contributors" src="https://img.shields.io/github/contributors/VermeilChan/MetalSlugFontRebornWeb?color=green" />
-  </a>
-  <a href="https://github.com/VermeilChan/MetalSlugFontRebornWeb/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/VermeilChan/MetalSlugFontRebornWeb?color=purple" />
-  </a>
-  <a href="https://github.com/VermeilChan/MetalSlugFontRebornWeb/issues">
-    <img alt="Open Issues" src="https://img.shields.io/github/issues/VermeilChan/MetalSlugFontRebornWeb?color=red" />
-  </a>
-  <a href="https://github.com/VermeilChan/MetalSlugFontRebornWeb/pulls">
-    <img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/VermeilChan/MetalSlugFontRebornWeb?color=yellow" />
-  </a>
-  <a href="https://github.com/VermeilChan/MetalSlugFontRebornWeb/commits/main">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/VermeilChan/MetalSlugFontRebornWeb?color=darkcyan" />
-  </a>
-  <a href="https://github.com/VermeilChan/MetalSlugFontRebornWeb">
-    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/VermeilChan/MetalSlugFontRebornWeb?color=yellowgreen" />
-  </a>
-  <a href="https://github.com/VermeilChan/MetalSlugFontRebornWeb">
-    <img alt="GitHub forks" src="https://img.shields.io/github/forks/VermeilChan/MetalSlugFontRebornWeb?color=lightcoral" />
-  </a>
-</p>
+## 简介
 
-A tool for creating images with the Metal Slug font.
+此仓库复刻于[VermeilChan/MetalSlugFontRebornWeb](https://github.com/VermeilChan/MetalSlugFontRebornWeb)。
 
-<p style="font-size: medium">
-If you have a GitHub account and have found this repository helpful, please consider starring ★ it.
-</p>
+本为群友之作。其支持生成单行单字体文字。甚是喜欢。随机萌生了自己“魔改”的想法，希望它能支持一次性输出多行字、多种字体。
 
-## Table of Contents
+复刻了群友的项目仓库后，经过约一周半时间，重写了所有代码，改出了0.1版。欢迎使用，也欢迎报告BUG，提出改进(至于能不能实现，得看我有没有精力了。“下次一定”吧233)，甚至再次复刻修改。
 
-- [Features](#features)
-- [How to Contribute](#how-to-contribute)
-- [License](#license)
-- [Credits](#credits)
+### 两版特性比对
 
-## Features
+个人认为这个有必要提一下：
 
-- Easily transform text into images using the Metal Slug font.
-- Supports uppercase and lowercase letters (A-Z, a-z), digits (0-9), symbols, and multiple colors.
+#### 原版特性
 
-## How to Contribute
+1. 是网页应用程序，可以部署于网站。原作者自己也已经部署了一个，网站域名可前往原作者的仓库页面(见上)获取。若足下只有生成单行字的要求，或者不愿意搭建Python环境，可以考虑用原版。
 
-If you find issues or have ideas for improvements, please:
+#### 本分支版本特性
 
-- [Report an issue](https://github.com/VermeilChan/MetalSlugFontRebornWeb/issues)
-- [Submit a pull request](https://github.com/VermeilChan/MetalSlugFontRebornWeb/pulls)
+1. 是桌面图形应用程序。由纯Python写成，目前不打算发布打包版的Release。故想要运行，需要搭建好环境才能使用。
 
-## License
+2. 采用`源文件-输出文件`模式。可以以类似MS Office Word的形式“可视化”地编辑源文件，再一键输出。
 
-This project is licensed under the [GNU General Public License v3.0](LICENSE).
+3. 允许调整输出图片的“页边距”“行距”“空行行高”
 
-## Credits
+4. “顺便”支持了原版尚不能输出的字符。
 
-I want to say a big thank you to the individuals who helped me.
+<!-- 有彩蛋！ -->
 
-- [SNK Corporation](https://www.snk-corp.co.jp): Used some of their assets.
-- [SikroxMemer](https://github.com/SikroxMemer): for assisting in the development of the program and webapp.
-- [Division 六](https://6th-divisions-den.com): inspiring me to create the program in the first place and providing assets for fonts 1 to 4.
-- [GussPrint](https://www.spriters-resource.com/submitter/Gussprint): for providing assets for font 5.
-- [BinRich](https://discord.com/users/477459550904254464): for providing diacritic marks.
+## 环境要求
 
-### Third-party libraries
+1. Python >= 3.10 因为代码中不少地方都用了match-case语句，这种语句是3.10版开始支持的。<s>或者……你可以自己将它们改成if-elif-else语句？</s>
 
-- [Flask](https://flask.palletsprojects.com/en/3.0.x/)
-- [Pillow](https://python-pillow.org)
+2. PyQt5
+
+3. Pillow
+
+### 依赖安装
+
+* 在`Ubuntu 24.04`上，可以直接利用`sudo apt install python3-pyqt5 python3-pil`命令安装依赖模块。
+
+* 使用pip：(如有需要，需要先配置虚拟环境和下载源，再)运行命令`python3 -m pip install pyqt5 pillow #“python3”是Python解释器的名字，不同系统下会与此存在些许出入。`
+
+## 运行方法
+
+运行`src`目录下的`main.py`
+
+![wyz-2015](src/static/assets/examples/sign.png)
