@@ -102,7 +102,8 @@ class MainWindow(QMainWindow):#主窗口
             self.func_save_as_action()
 
     def func_save_as_action(self):
-        (save_path,filter)=QFileDialog.getSaveFileName(self,"另存为","./","")
+        save_dir=Path.cwd().parent / "input"
+        (save_path,filter)=QFileDialog.getSaveFileName(self,"另存为",str(save_dir),"")
         print("另存至：{0:s}".format(save_path))
         if(save_path):
             src_file=open(save_path,"w")
