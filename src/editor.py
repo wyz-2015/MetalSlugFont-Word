@@ -5,6 +5,7 @@ import sys
 from pathlib import *
 #import os
 from image_generator_gui import Img_gen_gui
+from soft_keyboard import SKeyboard
 
 class MainWindow(QMainWindow):#主窗口
     def __init__(self):
@@ -32,6 +33,8 @@ class MainWindow(QMainWindow):#主窗口
 
         self.current_font_id=None #为了“应用字体设置”功能增加的变量
         self.current_font_color=None
+        self.soft_keyboard=SKeyboard()
+        self.soft_keyboard.key_out.connect(self.add_char_to_edit_area)
 
         #### 编辑框 ####
         self.edit_area=QTextEdit()
@@ -103,7 +106,7 @@ class MainWindow(QMainWindow):#主窗口
 
     def func_save_as_action(self):
         save_dir=Path.cwd().parent / "input"
-        (save_path,filter)=QFileDialog.getSaveFileName(self,"另存为",str(save_dir),"")
+        (save_path,filter)=QFileDialog.getSaveFileName(self,"另存为",str(save_dir),"*.htm")
         print("另存至：{0:s}".format(save_path))
         if(save_path):
             src_file=open(save_path,"w")
@@ -131,12 +134,14 @@ class MainWindow(QMainWindow):#主窗口
     def func_change_font(self,setting):
         (font_id,font_color)=setting
         (self.current_font_id,self.current_font_color)=setting #新增
+        self.soft_keyboard.set_font_id(self.current_font_id)
         #print(setting)
         self.edit_area.setCurrentCharFormat(get_editor_font(font_id))
         self.edit_area.setTextColor(font_color)
 
     def func_soft_keyboard(self):
-        QMessageBox.information(self,"TODO","该功能尚未完成，敬请期待~",QMessageBox.Yes)
+        #QMessageBox.information(self,"TODO","该功能尚未完成，敬请期待~",QMessageBox.Yes)
+        self.soft_keyboard.show()
 
     ###################
 
@@ -144,6 +149,10 @@ class MainWindow(QMainWindow):#主窗口
     def func_text_changed(self):
         self.current_file_unsave=True
         self.change_window_title(self.current_file)
+
+    def add_char_to_edit_area(self,c):#在编辑区里追加软键盘传来的字符
+        #print(c)
+        self.edit_area.append(c)
 
     ###################
 
@@ -161,7 +170,7 @@ class MainWindow(QMainWindow):#主窗口
             sys.exit(0)
 
     def func_about_action(self):
-        QMessageBox.about(self,"关于","版本：0.1\nGithub仓库：https://github.com/wyz-2015/MetalSlugFont-Word\n复刻分支作者：wyz_2015")
+        QMessageBox.about(self,"关于","版本：0.2\nGithub仓库：https://github.com/wyz-2015/MetalSlugFont-Word\n复刻分支作者：wyz_2015")
 
     def change_window_title(self,file_path):
         if(file_path):
