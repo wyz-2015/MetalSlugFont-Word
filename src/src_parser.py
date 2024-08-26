@@ -1,5 +1,6 @@
 from html.parser import HTMLParser
 import argparse
+import unicodedata
 
 class Parser(HTMLParser):#分析由QTextEdit控件生成的HTML文件
     def __init__(self):
@@ -19,7 +20,8 @@ class Parser(HTMLParser):#分析由QTextEdit控件生成的HTML文件
              
     def handle_data(self,data):
         if(self.found_span):
-            self.temp_block.text=data
+            #self.temp_block.text=data #当时编写失误，通过走函数设class的变量值，还便于做点预处理。
+            self.temp_block.set_text(data)
 
     def handle_endtag(self,tag):
         match tag:
@@ -45,6 +47,9 @@ class Block():#接收并分析上文html解析器所得数据，顾名思义，�
         self.attrs=attrs
 
     def set_text(self,text):
+        #text=text.replace("\xa0","\x20")
+        #text=" ".join(text.split())
+        text=unicodedata.normalize("NFKC",text)#解决"\xa0"字符的问题
         self.text=text
 
     def get_data(self):

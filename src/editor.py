@@ -6,6 +6,7 @@ from pathlib import *
 #import os
 from image_generator_gui import Img_gen_gui
 from soft_keyboard import SKeyboard
+import version as ver
 
 class MainWindow(QMainWindow):#主窗口
     def __init__(self):
@@ -170,7 +171,7 @@ class MainWindow(QMainWindow):#主窗口
             sys.exit(0)
 
     def func_about_action(self):
-        QMessageBox.about(self,"关于","版本：0.2\nGithub仓库：https://github.com/wyz-2015/MetalSlugFont-Word\n复刻分支作者：wyz_2015")
+        QMessageBox.about(self,"关于","版本：{0:s}\nGithub仓库：https://github.com/wyz-2015/MetalSlugFont-Word\n复刻分支作者：wyz_2015".format(ver.VERSION))
 
     def change_window_title(self,file_path):
         if(file_path):

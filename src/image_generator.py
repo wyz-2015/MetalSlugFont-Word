@@ -6,6 +6,12 @@ from src_parser import htm2list
 import sqlite3
 import sys
 
+def sqlEscapeChar(c):#在需要时转换字符，以能在SQL表达式中正确使用。
+    if(c=="'"):
+        return "'{0:s}".format(c)
+    else:
+        return c
+
 class Cursor():
     def __init__(self):
         (self.x,self.y)=(0,0)
@@ -76,11 +82,13 @@ class Painter():
         return max_height
 
     def get_char_size(self,c,font_id):
+        c=sqlEscapeChar(c)
         res=self.sql_cur.execute("SELECT width,height FROM chars JOIN font{0:n}_chars_size ON chars.name=font{0:n}_chars_size.name WHERE char='{1:s}'".format(font_id,c))
 
         return res.fetchone()
 
     def select_char(self,c,font_id,color):#活 字 印 刷 术
+        c=sqlEscapeChar(c)
         res=self.sql_cur.execute("SELECT chars.name,types.name FROM chars JOIN types ON chars.type_id=types.id WHERE char='{0:s}'".format(c))
         (char_name,char_type)=res.fetchone()
 
